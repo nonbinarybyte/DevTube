@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask Video Player</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; }
+    video { width: 80%; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Video Library</h1>
+  {% for video in videos %}
+    <div>
+      <video controls>
+        <source src="{{ url_for('video', filename=video) }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>{{ video }}</p>
+    </div>
+  {% endfor %}
+</body>
+</html>
